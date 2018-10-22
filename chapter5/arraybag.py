@@ -42,7 +42,6 @@ class ArrayBag(object):
         result = ArrayBag(self)
         for item in other:
             result.add(item)
-            # self.add(item)
         return result
 
     # def __add__(self, other):
@@ -60,4 +59,26 @@ class ArrayBag(object):
             if not item in other:
                 return False
         return True
+
+    def remove(self, item):
+        '''
+        Precondition: item is in self,
+        Raises:keyError if item is not in self,
+        postcondition: item is removed from self
+        '''
+        #check precondition and raise if necessary
+        if not item in self:
+            raise KeyError(str(item)+'not in bag')
+        #search for index of target item
+        targetIndex = 0
+        for targetItem in self:
+            if targetItem == item:
+                break
+            targetIndex += 1
+        # shift items to the left of target up by one position
+        for i in range(targetIndex, len(self) -1):
+            self._items[i] = self._items[i+1]
+        # decrement logical size
+        self._size -= 1
+
 
