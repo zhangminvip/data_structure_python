@@ -2,10 +2,11 @@ from chapter4.node import Node
 
 class LinkedBag(object):
     ''' A link-based bag implementation'''
+    '''Head insertion method'''
 
 
     def __init__(self, sourceCollection=None):
-        self._items = None
+        self._items = None  # This is a Pointer
         self._size = 0
         if sourceCollection:
             for item in sourceCollection:
@@ -49,3 +50,24 @@ class LinkedBag(object):
     def add(self, item):
         self._items = Node(item,self._items)
         self._size += 1
+
+
+    def remove(self, item):
+        if not item in self:
+            raise KeyError(str(item)+'not in bag')
+        probe = self._items
+        trailer = None
+        for targetItem in self:
+            if targetItem == item:
+                break
+            trailer = probe    # Save the location of this iter
+            probe = probe.next # Jump to the location you are about to iter to
+        if probe == self._items:
+            self._items = probe.next
+        else:
+            trailer.next = probe.next
+        self._size -= 1
+
+
+
+
