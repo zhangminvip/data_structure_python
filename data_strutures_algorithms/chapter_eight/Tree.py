@@ -37,12 +37,12 @@ class Tree:
         '''Return the total number of elements in the tree'''
         raise NotImplementedError('must be implemented by subclass')
 
-    #-----------------concrete methods implemented in this class --------------------
+    # -----------------concrete methods implemented in this class --------------------
     def is_root(self, p):
         '''Return True if Position p reprements the root of the tree'''
         return self.root() == p
 
-    def is_leaf(self,p):
+    def is_leaf(self, p):
         '''Return True if Position p does not have any children'''
         return self.num_children() == p
 
@@ -61,3 +61,10 @@ class Tree:
     def _height1(self):
         '''Return the height of the tree'''
         return max(self.depth(p) for p in self.positions() if self.is_leaf(p))
+
+    def _height2(self, p):
+        '''Return the height of the subtree rooted at Position p'''
+        if self.is_leaf(p):
+            return 0
+        else:
+            return 1 + max(self._height2(c) for c in self.children(p))
