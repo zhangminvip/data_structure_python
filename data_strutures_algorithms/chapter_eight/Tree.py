@@ -57,3 +57,7 @@ class Tree:
             return 0
         else:
             return 1 + self.depth(self.parent(p))
+
+    def _height1(self):
+        '''Return the height of the tree'''
+        return max(self.depth(p) for p in self.positions() if self.is_leaf(p))
