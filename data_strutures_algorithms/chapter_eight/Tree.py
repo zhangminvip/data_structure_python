@@ -49,3 +49,11 @@ class Tree:
     def is_empty(self):
         '''Return True if the Tree is empty'''
         return len(self) == 0
+
+    def depth(self, p):
+        ''' Return the number of levels separating Positon '''
+
+        if self.is_root(p):
+            return 0
+        else:
+            return 1 + self.depth(self.parent(p))
