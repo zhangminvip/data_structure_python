@@ -29,3 +29,10 @@ class BinaryTree(Tree):
             else:
                 return self.left(parent)   # possibly None
 
+    def children(self,p):
+        '''Generate an iteration of Positions representing p's children'''
+        if self.left(p) is not None:
+            yield self.left(p)
+        if self.right(p) is not None:
+            yield self.right(p)
+
