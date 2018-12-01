@@ -40,4 +40,11 @@ class LinkedBinaryTree(BinaryTree):
         '''Return Position instance if given node(or None if no node)'''
         return self.Position(node) if node is not None else None
 
+    #-----------------------binary tree constructor------------------
+    def __init__(self):
+        '''Create an initial empty binary tree'''
+        self._root = None
+        self._size = 0
+
+
 
