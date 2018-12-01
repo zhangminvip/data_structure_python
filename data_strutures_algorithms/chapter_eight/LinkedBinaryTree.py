@@ -36,6 +36,8 @@ class LinkedBinaryTree(BinaryTree):
             raise ValueError('p is no longer valid')
         return p._node
 
-    
+    def _make_position(self, node):
+        '''Return Position instance if given node(or None if no node)'''
+        return self.Position(node) if node is not None else None
 
 
