@@ -38,7 +38,7 @@ class LinkedBinaryTree(BinaryTree):
 
     def _make_position(self, node):
         '''Return Position instance if given node(or None if no node)'''
-        return self.Position(node) if node is not None else None
+        return self.Position(self, node) if node is not None else None
 
     #-----------------------binary tree constructor------------------
     def __init__(self):
@@ -54,6 +54,13 @@ class LinkedBinaryTree(BinaryTree):
     def root(self):
         '''Return the root Position of the tree (or None if tree is empty)'''
         return self._make_position(self._root)
+
+    def parent(self, p):
+        '''Return the Position of p's parent(or None if p is root)'''
+        node = self._validate(p)
+        return self._make_position(node._parent)
+    
+
 
 
 
