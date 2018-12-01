@@ -51,7 +51,9 @@ class LinkedBinaryTree(BinaryTree):
         '''Return the total number of elements in the tree'''
         return self._size
 
-    
+    def root(self):
+        '''Return the root Position of the tree (or None if tree is empty)'''
+        return self._make_position(self._root)
 
 
 
