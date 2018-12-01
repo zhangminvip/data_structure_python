@@ -69,7 +69,16 @@ class LinkedBinaryTree(BinaryTree):
         '''Return the Position of p's right child(or None if no right child)'''
         node = self._validate(p)
         return self._make_position(node._right)
-    
 
+    def num_children(self, p):
+        '''Return the number of children of Position p'''
+        node = self._validate(p)
+        count = 0
+        if node._left is not None:    #left child exists
+            count += 1
+        if node._right is not None:   #right child exists
+            count += 1
+        return count
+    
 
 
