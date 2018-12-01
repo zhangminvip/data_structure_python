@@ -59,8 +59,17 @@ class LinkedBinaryTree(BinaryTree):
         '''Return the Position of p's parent(or None if p is root)'''
         node = self._validate(p)
         return self._make_position(node._parent)
-    
 
+    def left(self, p):
+        '''Return the Position of p's left child(or None if no left child)'''
+        node = self._validate(p)
+        return self._make_position(node._left)
+
+    def right(self, p):
+        '''Return the Position of p's right child(or None if no right child)'''
+        node = self._validate(p)
+        return self._make_position(node._right)
+    
 
 
 
