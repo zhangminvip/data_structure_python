@@ -46,5 +46,12 @@ class LinkedBinaryTree(BinaryTree):
         self._root = None
         self._size = 0
 
+    #-----------------------pubilc accessors--------------------------
+    def __len__(self):
+        '''Return the total number of elements in the tree'''
+        return self._size
+
+    
+
 
 
