@@ -26,5 +26,16 @@ class LinkedBinaryTree(BinaryTree):
             '''Return True if other is a Position representing a same location'''
             return type(other) is type(self) and other._node is self._node
 
-        
+    def _validate(self,p):
+        '''Return associated node, if position is vaild '''
+        if not isinstance(p, self.Position):
+            raise TypeError("p must be proper Position type")
+        if p._container is not self:
+            raise ValueError('p does not belong to this container ')
+        if p._node._parent is p._node:
+            raise ValueError('p is no longer valid')
+        return p._node
+
+    
+
 
