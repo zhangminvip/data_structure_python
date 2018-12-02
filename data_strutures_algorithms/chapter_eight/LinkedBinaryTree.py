@@ -146,6 +146,24 @@ class LinkedBinaryTree(BinaryTree):
         node._parent = node
         return node._element
 
+    def _attach(self, p, t1, t2):
+        '''attach trees t1 and t2 as left and right subtrees of external p'''
+        node = self._validate(p)
+        if not self.is_leaf(p): raise ValueError('position p must be leaf')
+        if not type(self) is type(t1) is type(t2):  # all 3 trees must be the same type
+            raise TypeError('Tree types must match')
+        self._size = t1 +t2
+        if not t1.is_empty():                       # attached t1 as left subtree of node
+            t1._root._parent = node
+            node._left = t1._root
+            t1._root = None                         # set t1 instance to empty
+            t1._size = 0
+        if not t2.is_empty():                       # attached t2 as right subtree of node
+            t2._root._parent = node
+            node._right = t2._root
+            t2._root = None                         # set t2 instance to empty
+            t2._size = 0
+
 
 
 
