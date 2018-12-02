@@ -121,7 +121,33 @@ class LinkedBinaryTree(BinaryTree):
         old = node._element
         node._element = e
         return old
-    
+
+    def _delete(self, p):
+        '''Delete the node at Position p, and repalce it with with its child,if any
+
+        Return the element that had been stored at Position p
+        Raise ValueError if Position p is invalid or p has two children.
+        '''
+
+        node = self._validate(p)
+        if self.num_children(p) == 2: raise ValueError('p has tow children')
+        child = node._left if node._left else node._right    #might be None
+        if child is not None:
+            child._parent = node._parent
+        if node is self._root:
+            self._root = child             # child become root
+        else:
+            parent = node._parent
+            if node is parent._left:
+                parent._left = child
+            else:
+                parent._right = child
+        self._size -= 1
+        node._parent = node
+        return node._element
+
+
+
 
 
 
