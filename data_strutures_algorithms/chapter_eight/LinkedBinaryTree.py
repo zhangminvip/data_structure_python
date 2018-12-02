@@ -79,6 +79,17 @@ class LinkedBinaryTree(BinaryTree):
         if node._right is not None:   #right child exists
             count += 1
         return count
-    
+
+    def _add_root(self, e):
+        '''Place element e at the root of an empty tree and return new Position
+
+        Raise ValueError if tree nonempty
+        '''
+
+        if self._root is not None: raise ValueError('Root exists')
+        self._size += 1
+        self._root = self._Node(e)
+        return self._make_position(self._root)
+
 
 
