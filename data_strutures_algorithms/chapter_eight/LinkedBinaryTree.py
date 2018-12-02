@@ -91,5 +91,17 @@ class LinkedBinaryTree(BinaryTree):
         self._root = self._Node(e)
         return self._make_position(self._root)
 
+    def _add_left(self, p, e):
+        '''Create a new left child for Position p ,storing element e
+        Return the Position of new node
+        Raise ValueError if Position p is invaild or p already has a left child.
+        '''
+        node = self._validate(p)
+        if node is not None: raise ValueError('Left child exists')
+        self._size += 1
+        node._left = self._Node(e)
+        return self._make_position(node._left)
+
+
 
 
