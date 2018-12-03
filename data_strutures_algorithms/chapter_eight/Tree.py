@@ -17,6 +17,11 @@ class Tree:
             '''Return True if other does not represent the same location'''
             return not (self == other)  # opposite of __eq__
 
+    def __iter__(self):
+        '''Generate an iteration of the tree's elements'''
+        for p in self.positions():   # use same order as position()
+            yield p.element()        # but yield each element
+
     def root(self):
         '''Return Position representing the tree's root(or None if empty)'''
         raise NotImplementedError('must be implemented by subclass')
