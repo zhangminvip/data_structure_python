@@ -22,6 +22,14 @@ class Tree:
         for p in self.positions():   # use same order as position()
             yield p.element()        # but yield each element
 
+    def preorder(self):
+        '''Generate a preorder iteration of position in the tree'''
+        if not self.is_empty():
+            for p in self._subtree_preorder(self.root()):     # start recursion
+                yield p
+
+    
+
     def root(self):
         '''Return Position representing the tree's root(or None if empty)'''
         raise NotImplementedError('must be implemented by subclass')
