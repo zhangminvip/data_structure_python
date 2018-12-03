@@ -35,6 +35,10 @@ class Tree:
             for other in self._subtree_preorder(c):
                 yield other
 
+    def positions(self):
+        '''Generate an iteration of the tree's positions'''
+        return self.preorder()     # return entire preorder iteration
+
     def _subtree_preorder(self, p):
         '''Generate a preorder iteration of '''
 
