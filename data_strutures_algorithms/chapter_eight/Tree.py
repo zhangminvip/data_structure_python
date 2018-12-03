@@ -28,7 +28,15 @@ class Tree:
             for p in self._subtree_preorder(self.root()):     # start recursion
                 yield p
 
-    
+    def _subtree_preorder(self, p):
+        '''Generate a preorder iteration of positions in subtree rooted at p'''
+        yield p
+        for c in self.children(p):
+            for other in self._subtree_preorder(c):
+                yield other
+
+    def _subtree_preorder(self, p):
+        '''Generate a preorder iteration of '''
 
     def root(self):
         '''Return Position representing the tree's root(or None if empty)'''
