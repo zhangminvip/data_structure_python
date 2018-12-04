@@ -39,6 +39,20 @@ class Tree:
         '''Generate an iteration of the tree's positions'''
         return self.preorder()     # return entire preorder iteration
 
+    def postorder(self):
+        '''Generate a postorder iteration of positions in the tree'''
+        if not self.is_empty():
+            for p in self._subtree_postorder(self.root()):
+                yield p
+
+    def _subtree_postorder(self, p):
+        '''Generate a postorder iteration of positions in subtree rooted at p'''
+        for c in self.children(p):                      # for each child c
+            for other in self._subtree_postorder(c):    # do postorder of c's subtree
+                yield other                             # yielding each to our caller
+        yield p                                         # visit.p after its subtrees
+
+
     def _subtree_preorder(self, p):
         '''Generate a preorder iteration of '''
 
