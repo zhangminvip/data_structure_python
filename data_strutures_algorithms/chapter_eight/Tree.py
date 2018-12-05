@@ -56,7 +56,8 @@ class Tree:
     def inorder(self):
         '''Generate an inorder iteration of position in the tree'''
         if not self.is_empty():
-            pass
+            for p in self._subtree_inorder(self.root()):
+                yield p
 
     def _subtree_inorder(self, p):
         '''Generate an inorder iteration of position'''
