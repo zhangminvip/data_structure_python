@@ -53,8 +53,20 @@ class Tree:
         yield p                                         # visit.p after its subtrees
 
 
-    def _subtree_preorder(self, p):
-        '''Generate a preorder iteration of '''
+    def inorder(self):
+        '''Generate an inorder iteration of position in the tree'''
+        if not self.is_empty():
+            pass
+
+    def _subtree_inorder(self, p):
+        '''Generate an inorder iteration of position'''
+        if self.left(p) is not None:   # if left child exists, traverse its subtree
+            for other in self._subtree_inorder(self.left(p)):
+                yield other
+        yield p                        # visit p between its subtrees
+        if self.right(p) is not None:  # if right child exists, traverse its subtree
+            for other in self._subtree_inorder(self.right(p)):
+                yield other
 
     def root(self):
         '''Return Position representing the tree's root(or None if empty)'''
