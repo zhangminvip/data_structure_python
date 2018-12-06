@@ -8,7 +8,12 @@ def bad_fibonacci(n):
 def good_fibonacci(n):
     '''Return pair of Fibonacci numbers, F(n) and F(n-1)'''
     if n <= 1:
-        return n
+        return (n,0)
     else:
         (a, b) = good_fibonacci(n - 1)
         return (a+b, a)
+
+
+a,b = good_fibonacci(6)
+print(a,b)
+print(bad_fibonacci(6))
