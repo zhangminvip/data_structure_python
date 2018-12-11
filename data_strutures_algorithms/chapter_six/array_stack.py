@@ -27,6 +27,9 @@ class ArrayStack:
             raise Empty('Stack is empty')
         return self._data[-1]                   #the last item in the list
 
-        
+class Empty(Exception):
+    '''Error attempting to access an element from an empty container'''
+    
+    pass
 
 
