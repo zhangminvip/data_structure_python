@@ -5,4 +5,8 @@ class ArrayStack:
         '''Create an empty stack'''
         self._data = []
 
+    def __len__(self):
+        '''Return the number of elements in the stack'''
+        return len(self._data)
+
     
