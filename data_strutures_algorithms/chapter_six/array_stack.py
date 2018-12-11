@@ -9,4 +9,7 @@ class ArrayStack:
         '''Return the number of elements in the stack'''
         return len(self._data)
 
+    def is_empty(self):
+        '''Return True if the stack is empty'''
+        return len(self._data) == 0
     
