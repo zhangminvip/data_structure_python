@@ -12,4 +12,10 @@ class ArrayStack:
     def is_empty(self):
         '''Return True if the stack is empty'''
         return len(self._data) == 0
+
+    def push(self, e):
+        '''Add element e to the top of the stack'''
+        self._data.append(e)                    # new item stored at end of list
+
     
+
