@@ -25,11 +25,21 @@ class ArrayStack:
 
         if self.is_empty():
             raise Empty('Stack is empty')
-        return self._data[-1]                   #the last item in the list
+        return self._data[-1]                   # the last item in the list
+
+    def pop(self):
+        '''Remove and return the element from the top of the stack(i.e., LIFO)
+
+        Raise Empty Exception if the stack is empty
+        '''
+
+        if self.is_empty():
+            raise Empty('Stack is empty')
+        return self._data.pop()                # remove last item from list
 
 class Empty(Exception):
     '''Error attempting to access an element from an empty container'''
-    
+
     pass
 
 
