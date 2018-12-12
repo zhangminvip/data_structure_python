@@ -14,4 +14,8 @@ class DynamicArray:
         '''Return number of elements in the arrays'''
         return self._n
 
-    def 
+    def __getitem__(self, k):
+        '''Return element at index k'''
+        if not 0 <= k < self._n:
+            raise IndexError('invalid index')
+        return self._A[k]                                # retrieve from array
