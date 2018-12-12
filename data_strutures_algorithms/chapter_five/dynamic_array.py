@@ -19,3 +19,10 @@ class DynamicArray:
         if not 0 <= k < self._n:
             raise IndexError('invalid index')
         return self._A[k]                                # retrieve from array
+
+    def append(self, obj):
+        '''Add object to end of the array'''
+        if self._n == self._capacity:
+            self._resize(2 * self._capacity)
+        self._A[self._n] = object
+        self._n += 1
