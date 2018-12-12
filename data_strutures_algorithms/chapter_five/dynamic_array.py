@@ -24,7 +24,7 @@ class DynamicArray:
         '''Add object to end of the array'''
         if self._n == self._capacity:
             self._resize(2 * self._capacity)             # not enough room so double capacity
-        self._A[self._n] = object
+        self._A[self._n] = obj
         self._n += 1
 
     def _resize(self, c):                                # nonpublic utitity
