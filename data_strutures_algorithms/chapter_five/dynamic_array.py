@@ -36,6 +36,7 @@ class DynamicArray:
         self._A = B                                      # use the bigger array
         self._capacity = c
 
-    def _make_array(self, c):
+    def _make_array(self, c):                            # nonpublic utitity
         '''Return new array with capacity c'''
-        
+
+        return (c * ctypes.py_object)()                  # see ctypes documentation
