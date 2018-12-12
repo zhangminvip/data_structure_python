@@ -23,6 +23,19 @@ class DynamicArray:
     def append(self, obj):
         '''Add object to end of the array'''
         if self._n == self._capacity:
-            self._resize(2 * self._capacity)
+            self._resize(2 * self._capacity)             # not enough room so double capacity
         self._A[self._n] = object
         self._n += 1
+
+    def _resize(self, c):                                # nonpublic utitity
+        '''Resize internal array to capacity c'''
+
+        B = self._make_array(c)                          # new(bigger) array
+        for k in range(self._n):                         # for each existing value
+            B[k] = self._A[k]
+        self._A = B                                      # use the bigger array
+        self._capacity = c
+
+    def _make_array(self, c):
+        '''Return new array with capacity c'''
+        
