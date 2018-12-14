@@ -26,3 +26,8 @@ class Scoreboard:
         self._board = [None] * capacity          # reserve space for future socres
         self._n = 0                              # number of actual entries
 
+    def __getitem__(self, k):
+        '''Return entry at index k'''
+        return self._board[k]
+
+    
