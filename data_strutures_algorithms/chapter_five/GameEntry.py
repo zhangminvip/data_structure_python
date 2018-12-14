@@ -30,4 +30,12 @@ class Scoreboard:
         '''Return entry at index k'''
         return self._board[k]
 
-    
+    def __str__(self):
+        '''Return string representation of the high score list'''
+        return '\n'.join(str(self._board[j]) for j in range(self._n))
+
+    def add(self, entry):
+        '''Consider adding entry to high scores'''
+        score = entry.get_score()
+
+        
