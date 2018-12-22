@@ -10,6 +10,7 @@ def selectionSort(alist):
         alist[i] = min
         alist[index] = tmp
 
+
 def quicksort(nums):
     if len(nums) <= 1:
         return nums
@@ -31,6 +32,7 @@ def quicksort(nums):
 
     return quicksort(less) + [base] + quicksort(greater)
 
-nums = [6,1,2,7,9,3,4,5,10,8,8]
+
+nums = [6, 1, 2, 7, 9, 3, 4, 5, 10, 8, 8]
 
 print(quicksort(nums))
